@@ -4,11 +4,11 @@ services:
     build:
       dockerfile: frontend.Dockerfile
       context: docker_app-frontend/
-    ports: 
+    ports:
       - "5173:5173"
   backend_app:
     build:
-      dockerfile: backend.Dockerfile
-      context: docker_app-backend/docker_app-backend
+      dockerfile: docker_app-backend/Dockerfile
+      context: docker_app-backend/
     ports:
       - "8080:8080"
