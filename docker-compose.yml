@@ -1,0 +1,14 @@
+version: '2.40.3'
+services:
+  frontend_app:
+    build:
+      dockerfile: frontend.Dockerfile
+      context: docker_app-frontend/
+    ports: 
+      - "5173:5173"
+  backend_app:
+    build:
+      dockerfile: backend.Dockerfile
+      context: docker_app-backend/
+    ports:
+      - "7252:7252"
