@@ -6,6 +6,10 @@ services:
       context: docker_app-frontend/
     ports:
       - "5173:5173"
+    environment:
+      - VITE_API_URL=http://backend_app:8000
+    depends_on:
+      - backend_app
   backend_app:
     build:
       dockerfile: docker_app-backend/Dockerfile
