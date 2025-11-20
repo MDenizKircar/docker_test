@@ -9,6 +9,6 @@ services:
   backend_app:
     build:
       dockerfile: backend.Dockerfile
-      context: docker_app-backend/
+      context: docker_app-backend/docker_app-backend
     ports:
-      - "7252:7252"
+      - "8080:8080"

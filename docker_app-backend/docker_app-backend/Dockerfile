@@ -12,8 +12,8 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["docker_app-backend/docker_app-backend.csproj", "docker_app-backend/"]
-RUN dotnet restore "./docker_app-backend/docker_app-backend.csproj"
+COPY ["docker_app-backend.csproj", "./"]
+RUN dotnet restore "docker_app-backend.csproj"
 COPY . .
 WORKDIR "/src/docker_app-backend"
 RUN dotnet build "./docker_app-backend.csproj" -c $BUILD_CONFIGURATION -o /app/build
