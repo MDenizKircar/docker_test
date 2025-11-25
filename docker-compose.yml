@@ -1,5 +1,11 @@
 version: '2.40.3'
 services:
+  database:
+    build:
+      context: ./database
+      dockerfile: database.Dockerfile
+    volumes:
+      - dbdata:/data
   frontend_app:
     build:
       dockerfile: frontend.Dockerfile
@@ -14,5 +20,11 @@ services:
     build:
       dockerfile: docker_app-backend/Dockerfile
       context: docker_app-backend/
+    depends_on:
+      - database
+    environment:
+      - DB_CONNECTION=Data Source=/app/database/db.sqlite
+    volumes:
+      - dbdata:/app/database
     ports:
       - "8080:8080"
