@@ -28,7 +28,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Connection string to your SQLite file
-const string ConnectionString = "Data Source=../../docker_app-database/db.sqlite";
+var connectionString =
+    Environment.GetEnvironmentVariable("DB_CONNECTION")
+    ?? "Data Source=../../docker_app-database/db.sqlite";
 
 // Make sure the database/table exist
 Database.EnsureDatabase(ConnectionString);
