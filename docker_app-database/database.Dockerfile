@@ -1,2 +1,8 @@
 FROM keinos/sqlite3:latest
-COPY *.sqlite /docker_app-database
+
+WORKDIR /data
+COPY db.sqlite /data/db.sqlite
+
+VOLUME ["/data"]
+
+CMD ["sh", "-c", "touch /data/db.sqlite && tail -f /dev/null"]
