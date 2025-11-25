@@ -1,2 +1,2 @@
-FROM postgres:16.1
-COPY *.sqlite /
+FROM keinos/sqlite3:latest
+COPY *.sqlite /docker_app-database
